@@ -1,0 +1,100 @@
+
+
+@hostname = localhost
+@port = 8081
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+@identificator = cibra2
+
+@Authorization_Token =  Bearer {{token}}
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWNhdG9yIjoiY2licmEiLCJpc093bmVyIjpmYWxzZSwicm9sZSI6IkNsaWVudCBhZG1pbiIsImlzQWN0aXZhdGVkIjp0cnVlLCJpc1JlcXVlc3RWaXNpYmxlIjp0cnVlLCJpc0tleXNWaXNpYmxlIjp0cnVlLCJpc0tleXNFZGl0YWJsZSI6dHJ1ZSwiaXNIaXN0b3JpY1Zpc2libGUiOnRydWUsImlhdCI6MTU3OTQ2OTg0OCwiZXhwIjoxNTgwMDc0NjQ4fQ.sbw3kIojCDjLJ5rIP6maFuZJ_INTontQ0zVUdgcGxUE
+
+@connectedUser = cibra
+
+
+##
+
+// Create User 
+POST /api/v1/client/ HTTP/1.1
+Host: {{host}}
+Content-Type: {{contentType}}
+Authorization: {{Authorization_Token}}
+identificator: {{connectedUser}}
+
+{
+	"identificator": "client8",
+	"role":"Basic",
+	"password" : "pass",
+	"confirmPassword" : "pass",
+    "designation": "Not Unic name",
+	"isActivated" : true,
+	"isRequestVisible" : true,
+	"isKeysVisible" : true,
+	"isKeysEditable" : true,
+	"isHistoricVisible" : true,
+	"tradeRegister" : "12341"
+}
+
+### 
+
+// get user profile
+GET /api/v1/client/profile/{{identificator}} HTTP/1.1
+Host: {{host}}
+Authorization: {{Authorization_Token}}
+identificator: {{connectedUser}}
+
+
+###
+
+// get all Clients
+GET /api/v1/client/ HTTP/1.1
+Host: {{host}}
+Authorization: {{Authorization_Token}}
+identificator: {{connectedUser}}
+
+
+###
+
+GET /api/v1/client/12340/accounts HTTP/1.1
+Host: {{host}}
+Authorization: {{Authorization_Token}}
+identificator: {{connectedUser}}
+
+
+###
+
+// Update user Basic infos
+
+PUT /api/v1/client/profile/{{identificator}} HTTP/1.1
+Host: {{host}}
+Content-Type: {{contentType}}
+Authorization: {{Authorization_Token}}
+identificator: {{connectedUser}}
+
+{
+	"role" : "Basic",
+    "designation": "Not Unic name",
+	"isActivated" : true,
+	"isRequestVisible" : true,
+	"isKeysVisible" : false,
+	"isKeysEditable" : true,
+	"isHistoricVisible" : true
+}
+
+###
+
+// change pwd 
+
+PUT /api/v1/client/profile/{{identificator}}/pwd/change HTTP/1.1
+Host: {{host}}
+Content-Type: {{contentType}}
+Authorization: {{Authorization_Token}}
+identificator: {{connectedUser}}
+
+{
+	"password" : "newPass",
+	"newPassword" : "pass",
+	"confirmPassword" : "pass"
+}
