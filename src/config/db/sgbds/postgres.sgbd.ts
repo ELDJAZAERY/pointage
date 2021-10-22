@@ -26,7 +26,7 @@ export default class PostgresSGBD implements ISgbd {
         type: "postgres",
         host: this.host,
         port: this.port,
-        name: this.user,
+        username: this.user,
         password: this.password,
         database: this.name,
         entities: [`${__dirname}/../../**/**/*.entity{.ts,.js }`],
