@@ -11,7 +11,7 @@ export default (): IEnvs => ({
     password: process.env.DB_PASSWORD ?? "",
   },
   server: {
-    port: Number.parseInt(process.env.SERVER_PORT ?? "8080"),
+    port: Number.parseInt(process.env.PORT ?? "8080"),
   },
   nodeEnv: {
     NODE_ENV: process.env.NODE_ENV ?? "dev",
