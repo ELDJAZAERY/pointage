@@ -49,7 +49,7 @@ export default class PointageManager implements IPointageManager {
     let pointages: Pointage[] = await Pointage.createQueryBuilder("pointage")
       .leftJoinAndSelect("pointage.employe", "employe")
       .where("employe.id = :employeID", { employeID })
-      .orderBy("employe.check_in", "DESC", "NULLS LAST")
+      .orderBy(`pointage.check_in`, "DESC", "NULLS LAST")
       .take(1)
       .getMany();
 
@@ -62,7 +62,7 @@ export default class PointageManager implements IPointageManager {
     let pointages: Pointage[] = await Pointage.createQueryBuilder("pointage")
       .leftJoinAndSelect("pointage.employe", "employe")
       .where("employe.id = :employeID", { employeID })
-      .orderBy("employe.check_out", "DESC", "NULLS LAST")
+      .orderBy("pointage.check_out", "DESC", "NULLS LAST")
       .take(1)
       .getMany();
 

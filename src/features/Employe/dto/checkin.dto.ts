@@ -1,10 +1,10 @@
-import { IsString, IsNotEmpty, IsUUID } from "class-validator";
+import { IsString, IsUUID, IsOptional } from "class-validator";
 
 export default class CheckInOutDTO {
   @IsUUID()
   employeID: string;
 
   @IsString()
-  @IsNotEmpty()
-  comment: string;
+  @IsOptional()
+  comment?: string;
 }
