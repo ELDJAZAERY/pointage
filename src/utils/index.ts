@@ -1,6 +1,6 @@
 export const isValidDate = (stringDate: string): boolean => {
   try {
-    let date = new Date(stringDate);
+    const date = new Date(stringDate);
 
     return !isNaN(date.getTime());
   } catch {

@@ -1,9 +1,7 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import logger from "../utils/logger";
 import HttpException from "../utils/exceptions/httpException";
 import HttpStatusEnum from "../shared/Enums/httpStatus.enum";
-
-
 
 /**
  * 
@@ -13,8 +11,7 @@ import HttpStatusEnum from "../shared/Enums/httpStatus.enum";
 export default (
   err: HttpException,
   _req: Request,
-  res: Response,
-  next: NextFunction
+  res: Response
 ): void => {
   logger.error(`Error : ${err?.message ?? err}`);
   res
