@@ -22,10 +22,12 @@ export default class EmployeManager implements IEntityManager<Employe> {
   }
 
   async list(filter: Record<string, any>): Promise<IPagination<Employe>> {
-    const { search, from, to, date, limit = 0, page = 0 } = filter;
+    let { search, from, to, date, limit = 0, page = 1 } = filter;
+
+    page = Math.max(parseInt(page), 1);
 
     const take = parseInt(limit);
-    const skip = parseInt(page) * limit;
+    const skip = (page - 1) * take;
 
     let emploies = Employe.createQueryBuilder("employe")
       .where("")
