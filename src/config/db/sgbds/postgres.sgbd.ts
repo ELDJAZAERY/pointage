@@ -33,7 +33,9 @@ export default class PostgresSGBD implements ISgbd {
         entities: [EmployeEntity, PointageEntity],
         synchronize: process.env.NODE_ENV !== "production",
         logging: false,
-        ssl: false,
+        ssl: {
+          rejectUnauthorized: false,
+        },
       });
       this.success();
       return true;
