@@ -79,7 +79,7 @@ class EmployeController implements Controller {
     );
 
     // si on arrive là, alors aucune exception a été generée
-    res.status(HttpStatusEnum.CREATED).send(emploies);
+    res.status(HttpStatusEnum.SUCCESS).send(emploies);
   }
 
   async checkIn(req: Request, res: Response): Promise<void> {
@@ -87,7 +87,7 @@ class EmployeController implements Controller {
     const checkin: Pointage = await EmployeService.checkIn(checkInOutDTO);
 
     // si on arrive là, alors aucune exception a été generated
-    res.status(HttpStatusEnum.CREATED).send({ checkin });
+    res.status(HttpStatusEnum.SUCCESS).send({ checkin });
   }
 
   async checkOut(req: Request, res: Response): Promise<void> {
@@ -95,7 +95,7 @@ class EmployeController implements Controller {
     const checkout: Pointage = await EmployeService.checkOut(checkInOutDTO);
 
     // si on arrive là, alors aucune exception a été generated
-    res.status(HttpStatusEnum.CREATED).send({ checkout });
+    res.status(HttpStatusEnum.SUCCESS).send({ checkout });
   }
 }
 
