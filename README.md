@@ -9,12 +9,12 @@ Cette solution prend en compte certaines anomalies telles que
 
 ## Doumentations
 
-[API DOCS](https://**.com)
+[API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/)
 
 
 ## La structure de fichiers
 
-[structure de fichiers](./docs/files.structur.md)
+[structure de fichiers](./docs/files.structur.txt)
 
 ## Requirements
 

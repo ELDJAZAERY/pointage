@@ -9,6 +9,11 @@
       "url": "http://localhost:8081",
       "description": "Pointage API localhost",
       "variables": {}
+    },
+    {
+      "url": "https://abc-pointage.herokuapp.com",
+      "description": "STG Pointage API",
+      "variables": {}
     }
   ],
   "paths": {
