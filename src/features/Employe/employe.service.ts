@@ -102,10 +102,10 @@ export default class EmployeService {
         employe.id
       );
 
-      if (!lastCheckin || (lastCheckin && !!lastCheckin?.check_out)) {
+      if (!lastCheckin || (lastCheckin && !!lastCheckin.check_out)) {
         /**
          * l'employe essaie de marquer son départ,
-         *  et qu'il a oublier de marquer son arrive
+         *  et qu'il a oublié de se checker-in
          *
          *  - on va cree un Pointage object avec seulement le checkout date, la duration sera indeterminé
          */
@@ -127,11 +127,3 @@ export default class EmployeService {
     }
   };
 }
-
-
-/**
- * 
- * - 2 lecteur successive en une minite 
- * - checkout without checkin  
- * - duration
- */

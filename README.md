@@ -10,21 +10,18 @@ Documentation contains all Node Boilerplate ENDPOINTS.
 
 ## Dependencies
 
-- NodeJS 10
-- Typescript 3.5.3
+- NodeJS 12+
+- Typescript ^4.\*
 - Express ^4.\*
 - Express-async-errors
 - TypeORM
-- PostgreSQL 11.X || mongoose : ^5.\*
-- Axios
-- Jsonwebtoken
-- Crypto
+- pg 8.7.1
+- PostgreSQL 11.X
 - Jest
 
 - cors : "^2.8.5"
 - class-transformer : "^0.2.3"
 - class-validator : "^0.10.0"
-- 'express-async-errors'
 
 ## Installation
 
@@ -44,3 +41,13 @@ yarn start
 ```
 yarn test
 ```
+
+
+## Solutoin 
+/**
+ *
+ * - 2 lecteur successive en une minite
+ * - checkout without checkin
+ * - duration
+ */
+ 

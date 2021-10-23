@@ -1,4 +1,3 @@
-import { Employe } from "../..";
 import { isValidDate } from "../../../../utils";
 import { IPagination } from "../entity.manager.interface";
 import { IPointageCreatoinDTO } from "./interfaces";

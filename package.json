@@ -10,6 +10,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "mockdate": "^3.0.5",
     "pg": "^8.7.1",
     "swagger-ui-express": "^4.1.6",
     "typeorm": "^0.2.38"
@@ -43,9 +44,11 @@
     "build": "tsc",
     "lint": "eslint src/**/*.ts ",
     "lint:fix": "eslint --fix src/**/*.ts ",
-    "test": "jest --watch  --detectOpenHandles",
-    "coverage": "jest --coverage"
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "test:dev": "jest --watch --coverage"
   },
+  "homepage": "https://github.com/*/*#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/*.git"
@@ -55,6 +58,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/*/issues"
-  },
-  "homepage": "https://github.com/*/*#readme"
+  }
 }
