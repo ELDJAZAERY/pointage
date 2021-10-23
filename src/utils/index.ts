@@ -13,12 +13,20 @@ export const isValidDate = (stringDate: string): boolean => {
  * @param from Date
  * @param to Date
  *
- * calcule la dure en minute entre les 2 date
+ * calcule la dure en HH:MM entre les 2 date
  *
  */
-export const DateDiffInMinutes = (from: Date, to: Date): number => {
-  const diffTime = Math.abs(from.getTime() - to.getTime());
-  const diffMin = Math.ceil(diffTime / (1000 * 60));
+export const DiffIn_HH_MM = (from: Date, to: Date): string | undefined => {
+  try {
+    const diffTime = Math.abs(from.getTime() - to.getTime());
+    const diffMin = Math.ceil(diffTime / (1000 * 60));
 
-  return diffMin;
+    const HH_MM = `${Math.floor(diffMin / 60)} H : ${Math.floor(
+      diffMin % 60
+    )} Min`;
+
+    return HH_MM;
+  } catch {
+    return undefined;
+  }
 };

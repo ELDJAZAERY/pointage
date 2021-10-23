@@ -8,7 +8,7 @@ import {
   ManyToOne,
 } from "typeorm";
 import { Employe } from "../..";
-import { DateDiffInMinutes } from "../../../../utils";
+import { DiffIn_HH_MM } from "../../../../utils";
 
 @Entity({ name: "pointage" })
 export default class Pointage extends BaseEntity {
@@ -17,13 +17,9 @@ export default class Pointage extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @ManyToOne(
-    (type) => Employe,
-    (employe) => employe.pointages,
-    {
-      eager: true,
-    }
-  )
+  @ManyToOne((type) => Employe, (employe) => employe.pointages, {
+    eager: true,
+  })
   employe: Employe;
 
   @Column({ nullable: true })
@@ -35,8 +31,8 @@ export default class Pointage extends BaseEntity {
   @Column({ nullable: true })
   comment?: string;
 
-  @Column({ default: -1 })
-  duration: number;
+  @Column({ nullable: true })
+  duration?: string;
 
   @CreateDateColumn()
   readonly creationDate: Date;
@@ -64,7 +60,7 @@ export default class Pointage extends BaseEntity {
     if (comment) this.comment = comment;
 
     if (this.check_in) {
-      this.duration = DateDiffInMinutes(this.check_in, this.check_out);
+      this.duration = DiffIn_HH_MM(this.check_in, this.check_out);
     }
 
     return this.save();
