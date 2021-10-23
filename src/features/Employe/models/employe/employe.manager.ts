@@ -22,7 +22,7 @@ export default class EmployeManager implements IEntityManager<Employe> {
   }
 
   async list(filter: Record<string, any>): Promise<IPagination<Employe>> {
-    const { search, from, to, date, limit, page } = filter;
+    const { search, from, to, date, limit = 0, page = 0 } = filter;
 
     const take = parseInt(limit);
     const skip = parseInt(page) * limit;
@@ -34,31 +34,28 @@ export default class EmployeManager implements IEntityManager<Employe> {
 
     if (search) {
       emploies = emploies.andWhere(
-        `LOWER(employe.name) LIKE LOWER('%:search%') OR LOWER(article."firstName") LIKE LOWER('%:search%')`,
-        { search }
+        `LOWER(employe.name) LIKE LOWER('%${search}%') OR LOWER(employe."firstName") LIKE LOWER('%${search}%')`
       );
     }
 
     if (isValidDate(from) && isValidDate(to)) {
       emploies = emploies.andWhere(
         `employe."creationDate" BETWEEN :from AND :to`,
-        { from: new Date(from), to: new Date(from) }
+        { from: new Date(from), to: new Date(to) }
       );
     }
 
     if (isValidDate(date)) {
+      const cdate = new Date(date).toISOString().split("T")[0];
       emploies = emploies.andWhere(
-        `DATE_TRUNC('day', "employe."creationDate"") = :date`,
-        {
-          date: new Date(date).toISOString().split("T")[0],
-        }
+        `employe."creationDate"::text LIKE '${cdate}%'`
       );
     }
 
     const [items, count] = await emploies.getManyAndCount();
 
-    let totalPages: number = Math.trunc(count / limit);
-    totalPages = count % limit === 0 ? totalPages : totalPages + 1;
+    let totalPages: number = !!limit ? Math.trunc(count / limit) : 0;
+    totalPages = !!limit && count % limit === 0 ? totalPages : totalPages + 1;
 
     return { items, count, page, totalPages };
   }
@@ -66,9 +63,11 @@ export default class EmployeManager implements IEntityManager<Employe> {
   async find(filter: Record<string, any>): Promise<Employe> {
     const { employeID, search, from, to, date } = filter;
 
-    let query = Employe.createQueryBuilder(
-      "employe"
-    ).where("employe.id = :employeID", { employeID });
+    let query = Employe.createQueryBuilder("employe").where("");
+
+    if (employeID) {
+      query = query.andWhere("employe.id = :employeID", { employeID });
+    }
 
     if (search) {
       query = query.andWhere(
@@ -80,17 +79,13 @@ export default class EmployeManager implements IEntityManager<Employe> {
     if (isValidDate(from) && isValidDate(to)) {
       query = query.andWhere(`employe."creationDate" BETWEEN :from AND :to`, {
         from: new Date(from),
-        to: new Date(from),
+        to: new Date(to),
       });
     }
 
     if (isValidDate(date)) {
-      query = query.andWhere(
-        `DATE_TRUNC('day', "employe."creationDate"") = :date`,
-        {
-          date: new Date(date).toISOString().split("T")[0],
-        }
-      );
+      const cdate = new Date(date).toISOString().split("T")[0];
+      query = query.andWhere(`employe."creationDate"::text LIKE '${cdate}%'`);
     }
 
     try {

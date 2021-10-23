@@ -1,4 +1,5 @@
 import { createConnection } from "typeorm";
+import { EmployeEntity, PointageEntity } from "../../../features/Employe";
 import logger from "../../../utils/logger";
 import { DBConfig } from "../../envs/envs.type";
 import ISgbd from "./sgbd.interface";
@@ -29,7 +30,7 @@ export default class PostgresSGBD implements ISgbd {
         username: this.user,
         password: this.password,
         database: this.name,
-        entities: [`${__dirname}/../../**/**/*.entity{.ts,.js }`],
+        entities: [EmployeEntity, PointageEntity],
         synchronize: process.env.NODE_ENV !== "production",
         logging: false,
       });

@@ -26,10 +26,10 @@ export default class Pointage extends BaseEntity {
   )
   employe: Employe;
 
-  @Column({ name: "check_in", nullable: true })
+  @Column({ nullable: true })
   check_in?: Date;
 
-  @Column({ name: "check_out", nullable: true })
+  @Column({ nullable: true })
   check_out?: Date;
 
   @Column({ nullable: true })
@@ -38,10 +38,10 @@ export default class Pointage extends BaseEntity {
   @Column({ default: -1 })
   duration: number;
 
-  @CreateDateColumn({ name: "creation_date" })
+  @CreateDateColumn()
   readonly creationDate: Date;
 
-  @UpdateDateColumn({ name: "last_update" })
+  @UpdateDateColumn()
   readonly lastUpdate: Date;
 
   constructor(employe?: Employe) {

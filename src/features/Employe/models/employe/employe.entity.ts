@@ -26,10 +26,10 @@ export default class Employe extends BaseEntity {
   @Column({ type: "varchar" })
   department: string;
 
-  @CreateDateColumn({ name: "creation_date" })
+  @CreateDateColumn()
   readonly creationDate: Date;
 
-  @UpdateDateColumn({ name: "last_update" })
+  @UpdateDateColumn()
   readonly lastUpdate: Date;
 
   @OneToMany(
