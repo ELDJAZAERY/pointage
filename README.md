@@ -1,24 +1,38 @@
-## Node.js API for [Test Description](./Test_descriptions)
+## Node.js/Typescript  API server - [Système de pointage](./docs/Test_descriptions.md)
 
-C'est une server nodejs avec typescript 
+Il s'agit d'un serveur Node.js express avec typescript basé sur l'architecture modulaire, où chaque feature a son propre module de 3 couches, modèles (pour toute communication avec la base de données), service (représente la couche métier), contrôleur (l'interface qui expose les services au client final comme une API REST FULL).
 
-## Node Boilerplate Documentation
+Cette solution prend en compte certaines anomalies telles que 
+- le cas le plus courant, lorsque le marqueur détecte une caisse deux fois de suite par erreur.
+- l'employé fait un check-in après avoir oublié de faire un check-out 
+- l'employé fait un check-out après avoir oublié de faire un check-in. 
 
-Documentation contains all Node Boilerplate ENDPOINTS.
+## Doumentations
 
-[LINK TO DOC](https://**.com)
+[API DOCS](https://**.com)
 
-## Dependencies
+
+## La structure de fichiers
+
+[structure de fichiers](./docs/files.structur.md)
+
+## Requirements
 
 - NodeJS 12+
 - Typescript ^4.\*
+- PostgreSQL 11.X
+
+OR 
+
+- Docker 
+- Docker-compose
+
+## Dependencies
+
 - Express ^4.\*
 - Express-async-errors
 - TypeORM
-- pg 8.7.1
-- PostgreSQL 11.X
 - Jest
-
 - cors : "^2.8.5"
 - class-transformer : "^0.2.3"
 - class-validator : "^0.10.0"
@@ -27,6 +41,14 @@ Documentation contains all Node Boilerplate ENDPOINTS.
 
 ```
  yarn install
+
+ OR
+
+ npm run install
+
+ OR
+
+ mad install
 ```
 
 ## RUN APP
@@ -34,20 +56,40 @@ Documentation contains all Node Boilerplate ENDPOINTS.
 ```
 
 yarn start
+
+OR 
+
+npm run strat
+
+OR 
+
+make start
 ```
 
 ## RUN TESTS
 
 ```
 yarn test
+
+OR
+
+npm run test
+
+OR
+
+mad test
 ```
 
+## RUN TESTS COVERAGE
 
-## Solutoin 
-/**
- *
- * - 2 lecteur successive en une minite
- * - checkout without checkin
- * - duration
- */
- 
+```
+yarn coverage
+
+OR
+
+yarn run coverage
+
+OR
+
+mad coverage
+```
