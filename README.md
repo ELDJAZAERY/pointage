@@ -9,7 +9,8 @@ Cette solution prend en compte certaines anomalies telles que
 
 ## Doumentations
 
-- [API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/) - CI/CD avec la branch `staging` 
+- [API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/) 
+- [CI/CD](https://github.com/ELDJAZAERY/pointage/deployments/activity_log?environment=abc-pointage) la branch [`staging`](https://github.com/ELDJAZAERY/pointage/tree/staging) en [heroku](https://heroku.com)
 - [Captures d'écran](./docs/Captures_ecran) 
 
 ## La structure de fichiers
