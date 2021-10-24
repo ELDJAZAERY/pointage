@@ -66,11 +66,11 @@ export default class EmployeService {
       const pointage = await EmployeService.pointageManager.create({ employe });
 
       return pointage.checkIn(comment);
-    } catch {
+    } catch (err: any) {
       return Promise.reject(
         new HttpException(
-          HttpStatusEnum.BAD_REQUEST,
-          "une erreur inattendue s'est produite"
+          err?.status ?? HttpStatusEnum.BAD_REQUEST,
+          err?.message ?? "une erreur inattendue s'est produite"
         )
       );
     }
@@ -117,11 +117,11 @@ export default class EmployeService {
       }
 
       return lastCheckin.checkOut(comment);
-    } catch {
+    } catch (err: any) {
       return Promise.reject(
         new HttpException(
-          HttpStatusEnum.BAD_REQUEST,
-          "une erreur inattendue s'est produite"
+          err?.status ?? HttpStatusEnum.BAD_REQUEST,
+          err?.message ?? "une erreur inattendue s'est produite"
         )
       );
     }
