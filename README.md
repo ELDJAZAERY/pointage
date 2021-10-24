@@ -9,12 +9,12 @@ Cette solution prend en compte certaines anomalies telles que
 
 ## Doumentations
 
-[API DOCS](https://**.com)
-
+- [API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/)
+- [Captures d'écran](./docs/Captures_ecran) 
 
 ## La structure de fichiers
 
-[structure de fichiers](./docs/files.structur.md)
+[structure de fichiers](./docs/files.structur.txt)
 
 ## Requirements
 
@@ -37,6 +37,26 @@ OR
 - class-transformer : "^0.2.3"
 - class-validator : "^0.10.0"
 
+
+
+## RUN APP WITH DOCKER
+
+```
+
+yarn docker
+
+OR 
+
+npm run docker
+```
+
+Le docker file a but pour builder un container contiens 2 servers 
+    - postgreSQL qui sera exposé to localhost au port 11543, avec un user `postgres` avec password `postgres`
+    - notre api qui sera exposé to localhost au port 8080
+
+RUN `docker ps` pour plus d'informations
+
+
 ## Installation
 
 ```
@@ -45,10 +65,6 @@ OR
  OR
 
  npm run install
-
- OR
-
- mad install
 ```
 
 ## RUN APP
@@ -60,10 +76,6 @@ yarn start
 OR 
 
 npm run strat
-
-OR 
-
-make start
 ```
 
 ## RUN TESTS
@@ -74,10 +86,6 @@ yarn test
 OR
 
 npm run test
-
-OR
-
-mad test
 ```
 
 ## RUN TESTS COVERAGE
@@ -88,8 +96,4 @@ yarn coverage
 OR
 
 yarn run coverage
-
-OR
-
-mad coverage
 ```

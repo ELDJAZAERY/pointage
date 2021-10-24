@@ -1,20 +1,19 @@
-import { Request, Response, NextFunction } from "express";
+import { NextFunction, Request, Response } from "express";
 import logger from "../utils/logger";
 import HttpException from "../utils/exceptions/httpException";
 import HttpStatusEnum from "../shared/Enums/httpStatus.enum";
 
-
-
 /**
- * 
+ *
  *  Error Handler Middleware
- * 
+ *
  */
 export default (
   err: HttpException,
   _req: Request,
   res: Response,
-  next: NextFunction
+  // eslint-disable-next-line
+  _next: NextFunction
 ): void => {
   logger.error(`Error : ${err?.message ?? err}`);
   res
