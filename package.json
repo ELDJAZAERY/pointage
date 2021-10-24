@@ -47,7 +47,9 @@
     "lint:fix": "eslint --fix src/**/*.ts ",
     "test": "jest",
     "coverage": "jest --coverage",
-    "test:dev": "jest --watch --coverage"
+    "test:dev": "jest --watch --coverage",
+    "docker": "docker-compose up -d --build",
+    "docker:dev": "docker-compose up --build"
   },
   "homepage": "https://github.com/*/*#readme",
   "repository": {
