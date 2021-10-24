@@ -6,13 +6,13 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8081",
-      "description": "Pointage API localhost",
+      "url": "https://abc-pointage.herokuapp.com",
+      "description": "STG Pointage API",
       "variables": {}
     },
     {
-      "url": "https://abc-pointage.herokuapp.com",
-      "description": "STG Pointage API",
+      "url": "http://localhost:8081",
+      "description": "Pointage API localhost",
       "variables": {}
     }
   ],
