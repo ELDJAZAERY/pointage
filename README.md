@@ -9,8 +9,8 @@ Cette solution prend en compte certaines anomalies telles que
 
 ## Doumentations
 
-[API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/)
-
+- [API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/)
+- [Captures d'écran](./docs/Captures_ecran) 
 
 ## La structure de fichiers
 
