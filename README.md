@@ -1,6 +1,6 @@
 ## Node.js/Typescript  API server - [Système de pointage](./docs/Test_descriptions.md)
 
-Il s'agit d'un serveur Node.js express avec typescript basé sur l'architecture modulaire, où chaque feature a son propre module de 3 couches, modèles (pour toute communication avec la base de données), service (représente la couche métier), contrôleur (l'interface qui expose les services au client final comme une API REST FULL).
+Il s'agit d'un serveur Node.js express avec typescript basé sur l'architecture modulaire, où chaque feature a son propre module de 3 couches, modèles (pour toute communication avec la base de données), service (représente la couche métier), contrôleur (l'interface qui expose les services au client final en forme d'un API REST FULL).
 
 Cette solution prend en compte certaines anomalies telles que 
 - le cas le plus courant, lorsque le marqueur détecte une caisse deux fois de suite par erreur.
@@ -9,7 +9,7 @@ Cette solution prend en compte certaines anomalies telles que
 
 ## Doumentations
 
-- [API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/)
+- [API DOCS](https://abc-pointage.herokuapp.com/api/v1/api-docs/#/) - CI/CD avec la branch `staging` 
 - [Captures d'écran](./docs/Captures_ecran) 
 
 ## La structure de fichiers
@@ -50,7 +50,7 @@ OR
 npm run docker
 ```
 
-Le docker file a but pour builder un container contiens 2 servers 
+`Dockerfile` et `Docker-compose` ont but pour builder un container de 2 servers 
     - postgreSQL qui sera exposé to localhost au port 11543, avec un user `postgres` avec password `postgres`
     - notre api qui sera exposé to localhost au port 8080
 
